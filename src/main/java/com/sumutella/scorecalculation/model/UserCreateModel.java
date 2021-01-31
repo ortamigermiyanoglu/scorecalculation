@@ -9,7 +9,7 @@ import java.util.List;
 
 @Setter
 @Getter
-public class CreateUserModel {
+public class UserCreateModel {
     private List<IdCodeDisplayValueDTO> incomeTranches = new ArrayList<>();
     private List<IdCodeDisplayValueDTO> cities = new ArrayList<>();
 }

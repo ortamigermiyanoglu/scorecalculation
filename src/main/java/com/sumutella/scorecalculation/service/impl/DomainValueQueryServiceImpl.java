@@ -35,14 +35,13 @@ public class DomainValueQueryServiceImpl implements DomainValueQueryService {
 
     @Override
     public List<IdCodeDisplayValueDTO> getAllIncomeTranches(String domainValueTypeCode) {
-
         PropertyMap<DomainValue, IdCodeDisplayValueDTO> incomeTrancheMap = new PropertyMap <DomainValue, IdCodeDisplayValueDTO>() {
             protected void configure() {
                 map().setDisplayValue(source.getDescription());
             }
         };
         modelMapper.addMappings(incomeTrancheMap);
-        List<DomainValue> incomeTrancheList = domainValueRepository.findAllByDomainValueTypeCode("CITY");
+        List<DomainValue> incomeTrancheList = domainValueRepository.findAllByDomainValueTypeCode("INCOME_TRANCHES");
         return incomeTrancheList.stream().map(incomeTranche -> modelMapper.map(incomeTranche,IdCodeDisplayValueDTO.class)).collect(Collectors.toList());
     }
 }
