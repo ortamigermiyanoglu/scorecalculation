@@ -1,0 +1,25 @@
+databaseChangeLog:
+- changeSet:
+    id: 1612126686306-1
+    author: sumutella (generated)
+    changes:
+    - sql:
+        sql:
+            INSERT INTO DomainValueType (code, description, createTime) VALUES ('INCOME_TRANCHES', 'Gelir Dilimleri', NOW());
+
+            INSERT INTO DomainValue (code, description, incomeTrancheFactor, domain_value_type_id, createTime) VALUES (
+            1, '0-2999',800, (SELECT id FROM DomainValueType WHERE code = 'INCOME_TRANCHES'), NOW());
+
+            INSERT INTO DomainValue (code, description, incomeTrancheFactor, domain_value_type_id, createTime) VALUES (
+            1, '3000TL-4999TL',1000, (SELECT id FROM DomainValueType WHERE code = 'INCOME_TRANCHES'), NOW());
+
+            INSERT INTO DomainValue (code, description, incomeTrancheFactor, domain_value_type_id, createTime) VALUES (
+            1, '5000TL-7999TL',1200, (SELECT id FROM DomainValueType WHERE code = 'INCOME_TRANCHES'), NOW());
+
+            INSERT INTO DomainValue (code, description, incomeTrancheFactor, domain_value_type_id, createTime) VALUES (
+            1, '8000TL-11999TL',1500, (SELECT id FROM DomainValueType WHERE code = 'INCOME_TRANCHES'), NOW());
+
+            INSERT INTO DomainValue (code, description, incomeTrancheFactor, domain_value_type_id, createTime) VALUES (
+            1, '12000TL ve üzeri',2000, (SELECT id FROM DomainValueType WHERE code = 'INCOME_TRANCHES'), NOW());
+
+

@@ -1,0 +1,10 @@
+databaseChangeLog:
+- changeSet:
+    id: 1612127695069-1
+    author: sumutella (generated)
+    changes:
+    - sql:
+        sql:
+            INSERT INTO City (name, trafficCode, createTime) VALUES ('Ankara', 6,  CURRENT_TIMESTAMP());
+            INSERT INTO City (name, trafficCode, createTime) VALUES ('Hatay', 31,  CURRENT_TIMESTAMP());
+            INSERT INTO City (name, trafficCode, createTime) VALUES ('Istanbul', 34,  CURRENT_TIMESTAMP());
