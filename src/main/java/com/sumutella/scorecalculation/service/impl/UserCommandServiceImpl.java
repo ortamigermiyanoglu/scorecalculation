@@ -39,7 +39,7 @@ public class UserCommandServiceImpl implements UserCommandService {
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     @Override
-    public void createUser(CreateUserDTO createUserDTO) {
+    public Long createUpdateUser(CreateUserDTO createUserDTO) {
         Boolean isUserExists = userQueryService.isUserExists(createUserDTO.getUserIdentityNumber());
         UserInfo userInfo;
         User user;
@@ -65,8 +65,8 @@ public class UserCommandServiceImpl implements UserCommandService {
         userInfo.setIncomeTranche(incomeTranche);
 
 
-        userInfoCommandService.createUserInfo(userInfo);
-
+        UserInfo savedUserInfo = userInfoCommandService.createUserInfo(userInfo);
+        return savedUserInfo.getUser().getId();
 
     }
 
