@@ -1,6 +1,6 @@
 databaseChangeLog:
 - changeSet:
-    id: 1612119692298-1
+    id: 1612126139578-1
     author: sumutella (generated)
     changes:
     - createTable:
@@ -27,7 +27,7 @@ databaseChangeLog:
             type: INT
         tableName: City
 - changeSet:
-    id: 1612119692298-2
+    id: 1612126139578-2
     author: sumutella (generated)
     changes:
     - createTable:
@@ -60,7 +60,7 @@ databaseChangeLog:
             type: BIGINT
         tableName: DomainValue
 - changeSet:
-    id: 1612119692298-3
+    id: 1612126139578-3
     author: sumutella (generated)
     changes:
     - createTable:
@@ -87,24 +87,7 @@ databaseChangeLog:
             type: VARCHAR(255)
         tableName: DomainValueType
 - changeSet:
-    id: 1612119692298-4
-    author: sumutella (generated)
-    changes:
-    - createTable:
-        columns:
-        - column:
-            constraints:
-              nullable: false
-            name: DomainValueType_id
-            type: BIGINT
-        - column:
-            constraints:
-              nullable: false
-            name: domainValues_id
-            type: BIGINT
-        tableName: DomainValueType_DomainValue
-- changeSet:
-    id: 1612119692298-5
+    id: 1612126139578-4
     author: sumutella (generated)
     changes:
     - createTable:
@@ -137,7 +120,7 @@ databaseChangeLog:
             type: VARCHAR(255)
         tableName: User
 - changeSet:
-    id: 1612119692298-6
+    id: 1612126139578-5
     author: sumutella (generated)
     changes:
     - createTable:
@@ -178,7 +161,7 @@ databaseChangeLog:
             type: BIGINT
         tableName: UserInfo
 - changeSet:
-    id: 1612119692298-7
+    id: 1612126139578-6
     author: sumutella (generated)
     changes:
     - addUniqueConstraint:
@@ -186,7 +169,7 @@ databaseChangeLog:
         constraintName: UC_USERIDENTITYNUMBER_COL
         tableName: User
 - changeSet:
-    id: 1612119692298-8
+    id: 1612126139578-7
     author: sumutella (generated)
     changes:
     - addUniqueConstraint:
@@ -194,28 +177,7 @@ databaseChangeLog:
         constraintName: UC_USERPHONENUMBER_COL
         tableName: User
 - changeSet:
-    id: 1612119692298-9
-    author: sumutella (generated)
-    changes:
-    - addUniqueConstraint:
-        columnNames: domainValues_id
-        constraintName: UK_7sieaece2b7tqhrqk2t57laqt
-        tableName: DomainValueType_DomainValue
-- changeSet:
-    id: 1612119692298-10
-    author: sumutella (generated)
-    changes:
-    - addForeignKeyConstraint:
-        baseColumnNames: DomainValueType_id
-        baseTableName: DomainValueType_DomainValue
-        constraintName: FK17bjgsw1bi7sshynrdv7vjewt
-        deferrable: false
-        initiallyDeferred: false
-        referencedColumnNames: id
-        referencedTableName: DomainValueType
-        validate: true
-- changeSet:
-    id: 1612119692298-11
+    id: 1612126139578-8
     author: sumutella (generated)
     changes:
     - addForeignKeyConstraint:
@@ -228,7 +190,7 @@ databaseChangeLog:
         referencedTableName: DomainValueType
         validate: true
 - changeSet:
-    id: 1612119692298-12
+    id: 1612126139578-9
     author: sumutella (generated)
     changes:
     - addForeignKeyConstraint:
@@ -241,7 +203,7 @@ databaseChangeLog:
         referencedTableName: DomainValue
         validate: true
 - changeSet:
-    id: 1612119692298-13
+    id: 1612126139578-10
     author: sumutella (generated)
     changes:
     - addForeignKeyConstraint:
@@ -254,7 +216,7 @@ databaseChangeLog:
         referencedTableName: City
         validate: true
 - changeSet:
-    id: 1612119692298-14
+    id: 1612126139578-11
     author: sumutella (generated)
     changes:
     - addForeignKeyConstraint:
@@ -265,18 +227,5 @@ databaseChangeLog:
         initiallyDeferred: false
         referencedColumnNames: id
         referencedTableName: User
-        validate: true
-- changeSet:
-    id: 1612119692298-15
-    author: sumutella (generated)
-    changes:
-    - addForeignKeyConstraint:
-        baseColumnNames: domainValues_id
-        baseTableName: DomainValueType_DomainValue
-        constraintName: FKoy5bxbvtuiyeu3c3nth1yl4d6
-        deferrable: false
-        initiallyDeferred: false
-        referencedColumnNames: id
-        referencedTableName: DomainValue
         validate: true
 

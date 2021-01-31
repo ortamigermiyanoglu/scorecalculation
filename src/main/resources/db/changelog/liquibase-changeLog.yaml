@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: src/main/resources/db/changelog/20210131-2048-changeLog.yaml

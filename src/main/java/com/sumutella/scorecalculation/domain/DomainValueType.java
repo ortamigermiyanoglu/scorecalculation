@@ -18,6 +18,4 @@ import java.util.List;
 public class DomainValueType extends BaseEntity{
     private String code;
     private String description;
-    @OneToMany(cascade={CascadeType.ALL}, fetch = FetchType.LAZY, orphanRemoval = false)
-    private List<DomainValue> domainValues = new ArrayList<>();
 }

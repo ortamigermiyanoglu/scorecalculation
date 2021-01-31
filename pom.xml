@@ -83,13 +83,6 @@
             <artifactId>springfox-bean-validators</artifactId>
             <version>2.9.2</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>2.0.1.Final</version>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -113,7 +106,7 @@
                 <version>4.2.2</version>
                 <configuration>
                     <propertyFile>src/main/resources/liquibase.properties</propertyFile>
-                    <changeLogFile>src/main/resources/db/changelog/db.changelog-master.yaml</changeLogFile>
+                    <changeLogFile>src/main/resources/db/changelog/liquibase-changeLog.yaml</changeLogFile>
                     <diffChangeLogFile>src/main/resources/db/changelog/${timestamp}-changeLog.yaml</diffChangeLogFile>
                     <outputChangeLogFile>src/main/resources/db/changelog/${timestamp}-changeLog.yaml</outputChangeLogFile>
                 </configuration>
