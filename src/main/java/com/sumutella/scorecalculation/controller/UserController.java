@@ -26,7 +26,7 @@ public class UserController {
         return userCommandService.createUpdateUser(createUserRequest.getCreateUserDTO());
     }
 
-    @PostMapping("/users")
+    @PostMapping("/users/score")
     public Boolean updateUserCityScorendScoreSegment(UpdateUserScoresRequest updateUserScoresRequest) {
         return userCommandService.updateUserScores(updateUserScoresRequest.getUserIdentityNumber(), updateUserScoresRequest.getCityScore(),
                 updateUserScoresRequest.getScoreSegment());
