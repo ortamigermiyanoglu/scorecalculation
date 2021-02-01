@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Entity
+@Entity(name = "domain_value")
 @Setter
 @Getter
 @ToString

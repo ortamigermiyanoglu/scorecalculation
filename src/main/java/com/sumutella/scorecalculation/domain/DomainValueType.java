@@ -4,18 +4,14 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import java.util.ArrayList;
-import java.util.List;
 
-@Entity
+
+@Entity(name = "domain_value_type")
 @Setter
 @Getter
 @ToString
-public class DomainValueType extends BaseEntity{
+public class DomainValueType extends BaseEntity {
     private String code;
     private String description;
 }

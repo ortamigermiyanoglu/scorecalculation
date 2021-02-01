@@ -5,7 +5,6 @@ import com.sumutella.scorecalculation.dto.IdCodeDisplayValueDTO;
 import com.sumutella.scorecalculation.repository.CityRepository;
 import com.sumutella.scorecalculation.service.CityQueryService;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,12 +41,6 @@ public class CityQueryServiceImpl implements CityQueryService {
 
     @Override
     public List<IdCodeDisplayValueDTO> getAllCities() {
-        PropertyMap<City, IdCodeDisplayValueDTO> citiesMap = new PropertyMap<City, IdCodeDisplayValueDTO>() {
-            protected void configure() {
-                map().setDisplayValue(source.getName());
-            }
-        };
-        modelMapper.addMappings(citiesMap);
         List<City> cities = cityRepository.findAll();
         return cities.stream().map(city -> modelMapper.map(city, IdCodeDisplayValueDTO.class)).collect(Collectors.toList());
     }

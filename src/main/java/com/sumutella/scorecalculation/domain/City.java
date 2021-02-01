@@ -5,11 +5,13 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@Entity
+@Entity()
 @Setter
 @Getter
 @ToString
+@Table(name = "city")
 public class City extends BaseEntity{
     private String name;
     private Integer trafficCode;

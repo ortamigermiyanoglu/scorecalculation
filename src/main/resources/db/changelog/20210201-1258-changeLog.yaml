@@ -1,0 +1,231 @@
+databaseChangeLog:
+    - changeSet:
+          id: 1612184315289-1
+          author: sumutella (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: cityPK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              name: create_time
+                              type: datetime
+                        - column:
+                              name: last_update_time
+                              type: datetime
+                        - column:
+                              name: name
+                              type: VARCHAR(255)
+                        - column:
+                              name: traffic_code
+                              type: INT
+                    tableName: city
+    - changeSet:
+          id: 1612184315289-2
+          author: sumutella (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: domain_valuePK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              name: create_time
+                              type: datetime
+                        - column:
+                              name: last_update_time
+                              type: datetime
+                        - column:
+                              name: code
+                              type: INT
+                        - column:
+                              name: description
+                              type: VARCHAR(255)
+                        - column:
+                              name: income_tranche_factor
+                              type: INT
+                        - column:
+                              name: domain_value_type_id
+                              type: BIGINT
+                    tableName: domain_value
+    - changeSet:
+          id: 1612184315289-3
+          author: sumutella (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: domain_value_typePK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              name: create_time
+                              type: datetime
+                        - column:
+                              name: last_update_time
+                              type: datetime
+                        - column:
+                              name: code
+                              type: VARCHAR(255)
+                        - column:
+                              name: description
+                              type: VARCHAR(255)
+                    tableName: domain_value_type
+    - changeSet:
+          id: 1612184315289-4
+          author: sumutella (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: userPK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              name: create_time
+                              type: datetime
+                        - column:
+                              name: last_update_time
+                              type: datetime
+                        - column:
+                              name: identity_number
+                              type: BIGINT
+                        - column:
+                              name: name
+                              type: VARCHAR(255)
+                        - column:
+                              name: phone_number
+                              type: BIGINT
+                        - column:
+                              name: surname
+                              type: VARCHAR(255)
+                    tableName: user
+    - changeSet:
+          id: 1612184315289-5
+          author: sumutella (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: user_infoPK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              name: create_time
+                              type: datetime
+                        - column:
+                              name: last_update_time
+                              type: datetime
+                        - column:
+                              name: calculated_score
+                              type: BIGINT
+                        - column:
+                              name: city_score
+                              type: INT
+                        - column:
+                              name: score_segment
+                              type: INT
+                        - column:
+                              name: city_id
+                              type: BIGINT
+                        - column:
+                              name: income_tranche_id
+                              type: BIGINT
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: user_id
+                              type: BIGINT
+                    tableName: user_info
+    - changeSet:
+          id: 1612184315289-6
+          author: sumutella (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: identity_number
+                    constraintName: UC_USERIDENTITY_NUMBER_COL
+                    tableName: user
+    - changeSet:
+          id: 1612184315289-7
+          author: sumutella (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: phone_number
+                    constraintName: UC_USERPHONE_NUMBER_COL
+                    tableName: user
+    - changeSet:
+          id: 1612184315289-8
+          author: sumutella (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: domain_value_type_id
+                    baseTableName: domain_value
+                    constraintName: FKdwvh8lo30ayj2pqr74ea3cgwg
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: domain_value_type
+                    validate: true
+    - changeSet:
+          id: 1612184315289-9
+          author: sumutella (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: city_id
+                    baseTableName: user_info
+                    constraintName: FKgy1deell3i2fdcv5ysx1fkknw
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: city
+                    validate: true
+    - changeSet:
+          id: 1612184315289-10
+          author: sumutella (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: income_tranche_id
+                    baseTableName: user_info
+                    constraintName: FKipviyfrc9xbppsyj9200walce
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: domain_value
+                    validate: true
+    - changeSet:
+          id: 1612184315289-11
+          author: sumutella (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: user_id
+                    baseTableName: user_info
+                    constraintName: FKn8pl63y4abe7n0ls6topbqjh2
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: user
+                    validate: true
+

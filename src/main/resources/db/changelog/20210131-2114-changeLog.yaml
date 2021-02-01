@@ -4,7 +4,7 @@ databaseChangeLog:
     author: sumutella (generated)
     changes:
     - sql:
-        sql:
-            INSERT INTO City (name, trafficCode, createTime) VALUES ('Ankara', 6,  CURRENT_TIMESTAMP());
-            INSERT INTO City (name, trafficCode, createTime) VALUES ('Hatay', 31,  CURRENT_TIMESTAMP());
-            INSERT INTO City (name, trafficCode, createTime) VALUES ('Istanbul', 34,  CURRENT_TIMESTAMP());
+          sql:
+              INSERT INTO city (name, trafficCode, createTime) VALUES ('Ankara', 6,  CURRENT_TIMESTAMP());
+              INSERT INTO city (name, trafficCode, createTime) VALUES ('Hatay', 31,  CURRENT_TIMESTAMP());
+              INSERT INTO City (name, trafficCode, createTime) VALUES ('Istanbul', 34,  CURRENT_TIMESTAMP());

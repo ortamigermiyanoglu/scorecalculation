@@ -1,6 +1,6 @@
 databaseChangeLog:
   - include:
-      file: src/main/resources/db/changelog/20210131-2048-changeLog.yaml
+      file: src/main/resources/db/changelog/20210201-1258-changeLog.yaml
   - include:
       file: src/main/resources/db/changelog/20210131-2057-changeLog.yaml
   - include:
