@@ -5,3 +5,10 @@ databaseChangeLog:
       file: src/main/resources/db/changelog/20210131-2057-changeLog.yaml
   - include:
       file: src/main/resources/db/changelog/20210131-2114-changeLog.yaml
+  - include:
+      file: src/main/resources/db/changelog/20210201-1415-changeLog.yaml
+  - include:
+      file: src/main/resources/db/changelog/20210201-1442-changeLog.yaml
+  - include:
+      file: src/main/resources/db/changelog/20210201-1443-changeLog.yaml
+

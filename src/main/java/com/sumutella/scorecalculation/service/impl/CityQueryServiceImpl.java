@@ -26,11 +26,6 @@ public class CityQueryServiceImpl implements CityQueryService {
     }
 
     @Override
-    public Integer getCityScore(Integer cityTrafficCode) {
-        return null;
-    }
-
-    @Override
     public City getCity(Integer cityTrafficCode) {
         Optional<City> optionalCity = cityRepository.findByTrafficCode(cityTrafficCode);
         if (optionalCity.isPresent()) {

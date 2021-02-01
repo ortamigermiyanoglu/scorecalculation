@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1612188943306-1
+      author: sumutella (generated)
+      changes:
+        - sql:
+            sql:
+              ALTER  TABLE  user_info  DROP  COLUMN  city_score;
+              ALTER  TABLE  user_info  DROP  COLUMN  score_segment;
+              ALTER  TABLE  user_info  DROP  COLUMN  calculated_score;

@@ -14,9 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Objects;
-import java.util.Optional;
-
 @Slf4j
 @Service
 public class UserCommandServiceImpl implements UserCommandService {
@@ -26,18 +23,20 @@ public class UserCommandServiceImpl implements UserCommandService {
     private final UserInfoCommandService userInfoCommandService;
     private final CityQueryService cityQueryService;
     private final DomainValueQueryService domainValueQueryService;
+    private final ScoreSegmentCommandService scoreSegmentCommandService;
 
     @Autowired
-    public UserCommandServiceImpl(UserRepository userRepository, DomainValueRepository domainValueRepository, UserInfoQueryService userInfoQueryService, DomainValueQueryService domainValueQueryService, UserQueryService userQueryService, CityQueryService cityQueryService, UserInfoCommandService userInfoCommandService) {
+    public UserCommandServiceImpl(UserRepository userRepository, DomainValueRepository domainValueRepository, UserInfoQueryService userInfoQueryService, DomainValueQueryService domainValueQueryService, UserQueryService userQueryService, CityQueryService cityQueryService, UserInfoCommandService userInfoCommandService, ScoreSegmentCommandService scoreSegmentCommandService) {
         this.userRepository = userRepository;
         this.userInfoQueryService = userInfoQueryService;
         this.domainValueQueryService = domainValueQueryService;
         this.userQueryService = userQueryService;
         this.cityQueryService = cityQueryService;
         this.userInfoCommandService = userInfoCommandService;
+        this.scoreSegmentCommandService = scoreSegmentCommandService;
     }
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Long createUpdateUser(CreateUserDTO createUserDTO) {
         Boolean isUserExists = userQueryService.isUserExists(createUserDTO.getUserIdentityNumber());
@@ -66,23 +65,12 @@ public class UserCommandServiceImpl implements UserCommandService {
 
 
         UserInfo savedUserInfo = userInfoCommandService.createUserInfo(userInfo);
+        scoreSegmentCommandService.calculateScoreSegment(user.getIdentityNumber(), incomeTranche.getCode());
+        log.info(savedUserInfo + " created/updated");
         return savedUserInfo.getUser().getId();
 
     }
 
-    @Override
-    public Boolean updateUserScores(Long userIdentityNumber, Integer cityScore, Integer scoreSegment) {
-        UserInfo userInfo= userInfoQueryService.getUserInfo(userIdentityNumber);
-        if (Objects.nonNull(userInfo)){
-            userInfo.setCityScore(cityScore);
-            userInfo.setScoreSegment(scoreSegment);
-            UserInfo savedUserInfo = userInfoCommandService.createUserInfo(userInfo);
-            log.info("user city score and score segment updated:" + savedUserInfo);
-            return true;
-        }
-        log.info("user with " + userIdentityNumber + " not found");
-        return false;
-    }
 
 
 }

@@ -1,0 +1,56 @@
+databaseChangeLog:
+    - changeSet:
+          id: 1612190535319-3
+          author: sumutella (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: city_scorePK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              name: create_time
+                              type: datetime
+                        - column:
+                              name: last_update_time
+                              type: datetime
+                        - column:
+                              name: score
+                              type: INT
+                        - column:
+                              name: traffic_code
+                              type: INT
+                    tableName: city_score
+    - changeSet:
+          id: 1612190535319-4
+          author: sumutella (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: score_segmentPK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              name: create_time
+                              type: datetime
+                        - column:
+                              name: last_update_time
+                              type: datetime
+                        - column:
+                              name: identity_number
+                              type: BIGINT
+                        - column:
+                              name: score
+                              type: INT
+                    tableName: score_segment
+

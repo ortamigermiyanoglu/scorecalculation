@@ -14,9 +14,6 @@ import javax.persistence.OneToOne;
 @Setter
 @ToString
 public class UserInfo extends BaseEntity{
-    private Integer cityScore;
-    private Integer scoreSegment;
-    private Long calculatedScore;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
