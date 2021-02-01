@@ -5,21 +5,21 @@ databaseChangeLog:
     changes:
     - sql:
         sql:
-            INSERT INTO domain_value_type (code, description, createTime) VALUES ('INCOME_TRANCHES', 'Gelir Dilimleri', NOW());
+            INSERT INTO domain_value_type (code, description, create_time) VALUES ('INCOME_TRANCHES', 'Gelir Dilimleri', NOW());
 
-            INSERT INTO domain_value (code, description, incomeTrancheFactor, domain_value_type_id, createTime) VALUES (
+            INSERT INTO domain_value (code, description, income_tranche_factor, domain_value_type_id, create_time) VALUES (
             1, '0-2999',800, (SELECT id FROM domain_value_type WHERE code = 'INCOME_TRANCHES'), NOW());
 
-            INSERT INTO domain_value (code, description, incomeTrancheFactor, domain_value_type_id, createTime) VALUES (
+            INSERT INTO domain_value (code, description, income_tranche_factor, domain_value_type_id, create_time) VALUES (
             1, '3000TL-4999TL',1000, (SELECT id FROM domain_value_type WHERE code = 'INCOME_TRANCHES'), NOW());
 
-            INSERT INTO domain_value (code, description, incomeTrancheFactor, domain_value_type_id, createTime) VALUES (
+            INSERT INTO domain_value (code, description, income_tranche_factor, domain_value_type_id, create_time) VALUES (
             1, '5000TL-7999TL',1200, (SELECT id FROM domain_value_type WHERE code = 'INCOME_TRANCHES'), NOW());
 
-            INSERT INTO domain_value (code, description, incomeTrancheFactor, domain_value_type_id, createTime) VALUES (
+            INSERT INTO domain_value (code, description, income_tranche_factor, domain_value_type_id, create_time) VALUES (
             1, '8000TL-11999TL',1500, (SELECT id FROM domain_value_type WHERE code = 'INCOME_TRANCHES'), NOW());
 
-            INSERT INTO domain_value (code, description, incomeTrancheFactor, domain_value_type_id, createTime) VALUES (
+            INSERT INTO domain_value (code, description, income_tranche_factor, domain_value_type_id, create_time) VALUES (
             1, '12000TL ve üzeri',2000, (SELECT id FROM domain_value_type WHERE code = 'INCOME_TRANCHES'), NOW());
 
 
