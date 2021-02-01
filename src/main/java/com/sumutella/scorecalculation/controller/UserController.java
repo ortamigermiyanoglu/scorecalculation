@@ -21,7 +21,7 @@ public class UserController {
         this.userQueryService = userQueryService;
     }
 
-    @PostMapping("/users")
+    @PostMapping(value = "/users")
     public Long createUpdateUser(@RequestBody @Valid CreateUserRequest createUserRequest) {
         return userCommandService.createUpdateUser(createUserRequest.getCreateUserDTO());
     }
