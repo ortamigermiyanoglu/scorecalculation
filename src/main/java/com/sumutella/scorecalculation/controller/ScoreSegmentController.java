@@ -1,10 +1,9 @@
 package com.sumutella.scorecalculation.controller;
 
-import com.sumutella.scorecalculation.request.CalculateScoreSegmentRequest;
 import com.sumutella.scorecalculation.service.ScoreSegmentQueryService;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -19,8 +18,8 @@ public class ScoreSegmentController {
     }
 
     @GetMapping("/scoresegment")
-    public Integer getScoreSegment(@RequestBody @Valid CalculateScoreSegmentRequest calculateScoreSegmentRequest) {
-        return scoreSegmentQueryService.getUserScoreSegment(calculateScoreSegmentRequest.getUserIdentityNumber());
+    public Integer getScoreSegment(@RequestParam @Valid Long userIdentityNumber) {
+        return scoreSegmentQueryService.getUserScoreSegment(userIdentityNumber);
     }
 
 }
