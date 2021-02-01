@@ -31,9 +31,9 @@ public class SwaggerConfiguration {
     private ApiInfo metaData() {
         return new ApiInfoBuilder()
                 .title("Score Calculation Koc Finans")
-                .description("APIs for Koc Finans Score Calculation")
+                .description("REST APIs for Score Calculation Koc Finans ")
                 .version("1.0.0")
-                .contact(new Contact("Semir Umut Kurt", "https://github.com/sumut", "sumutella@gmail.com"))
+                .contact(new Contact("Semir Umut Kurt", "https://www.linkedin.com/in/semir-u-kurt-b2169798/", "sumutella@gmail.com"))
                 .build();
     }
 }
