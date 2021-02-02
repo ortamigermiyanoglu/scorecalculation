@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Positive;
 
 @RestController
 @RequestMapping("/scorecalculation")
@@ -23,7 +24,7 @@ public class ScoreSegmentController {
 
     @GetMapping("/scoresegment")
     @ApiOperation(value = "", notes = "get user score segment with userIdentityNumber parameter")
-    public Integer getScoreSegment(@ApiParam(required = true) @RequestParam @Valid Long userIdentityNumber) {
+    public Integer getScoreSegment(@ApiParam(required = true) @RequestParam @Valid @Positive Long userIdentityNumber) {
         return scoreSegmentQueryService.getUserScoreSegment(userIdentityNumber);
     }
 

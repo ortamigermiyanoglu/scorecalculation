@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Positive;
 
 @RestController
 @RequestMapping("/scorecalculation")
@@ -24,7 +25,7 @@ public class CityController {
 
     @GetMapping("/cities")
     @ApiOperation(value = "", notes = "get city score with traffic code parameter")
-    public Integer getCityScore(@ApiParam(required = true) @RequestParam @Valid Integer cityTrafficCode) {
+    public Integer getCityScore(@ApiParam(required = true) @RequestParam @Valid @Positive Integer cityTrafficCode) {
         return cityScoreQueryService.getCityScore(cityTrafficCode);
     }
 }
