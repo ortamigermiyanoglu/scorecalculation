@@ -1,5 +1,6 @@
 package com.sumutella.scorecalculation.domain;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,6 +13,7 @@ import javax.persistence.ManyToOne;
 @Setter
 @Getter
 @ToString
+@EqualsAndHashCode
 public class DomainValue extends BaseEntity{
     private String description;
     private Integer code;

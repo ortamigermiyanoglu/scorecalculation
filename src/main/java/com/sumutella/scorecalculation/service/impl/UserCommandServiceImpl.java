@@ -5,7 +5,6 @@ import com.sumutella.scorecalculation.domain.DomainValue;
 import com.sumutella.scorecalculation.domain.User;
 import com.sumutella.scorecalculation.domain.UserInfo;
 import com.sumutella.scorecalculation.dto.CreateUserDTO;
-import com.sumutella.scorecalculation.repository.DomainValueRepository;
 import com.sumutella.scorecalculation.repository.UserRepository;
 import com.sumutella.scorecalculation.service.*;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +25,7 @@ public class UserCommandServiceImpl implements UserCommandService {
     private final ScoreSegmentCommandService scoreSegmentCommandService;
 
     @Autowired
-    public UserCommandServiceImpl(UserRepository userRepository, DomainValueRepository domainValueRepository, UserInfoQueryService userInfoQueryService, DomainValueQueryService domainValueQueryService, UserQueryService userQueryService, CityQueryService cityQueryService, UserInfoCommandService userInfoCommandService, ScoreSegmentCommandService scoreSegmentCommandService) {
+    public UserCommandServiceImpl(UserRepository userRepository, UserInfoQueryService userInfoQueryService, DomainValueQueryService domainValueQueryService, UserQueryService userQueryService, CityQueryService cityQueryService, UserInfoCommandService userInfoCommandService, ScoreSegmentCommandService scoreSegmentCommandService) {
         this.userRepository = userRepository;
         this.userInfoQueryService = userInfoQueryService;
         this.domainValueQueryService = domainValueQueryService;
