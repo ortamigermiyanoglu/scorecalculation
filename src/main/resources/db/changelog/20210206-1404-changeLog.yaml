@@ -1,0 +1,96 @@
+databaseChangeLog:
+    - changeSet:
+          id: 1612620263606-3
+          author: sumutella (generated)
+          changes:
+              - createTable:
+                    columns:
+                        - column:
+                              autoIncrement: true
+                              constraints:
+                                  nullable: false
+                                  primaryKey: true
+                                  primaryKeyName: messagePK
+                              name: id
+                              type: BIGINT
+                        - column:
+                              name: create_time
+                              type: datetime
+                        - column:
+                              name: last_update_time
+                              type: datetime
+                        - column:
+                              name: city_score
+                              type: INT
+                        - column:
+                              name: city_traffic_code
+                              type: INT
+                        - column:
+                              name: income_tranche_factor
+                              type: INT
+                        - column:
+                              name: message
+                              type: VARCHAR(255)
+                        - column:
+                              name: user_identity_number
+                              type: BIGINT
+                        - column:
+                              name: user_score_segment
+                              type: INT
+                    tableName: message
+    - changeSet:
+          id: 1612620263606-4
+          author: sumutella (generated)
+          changes:
+              - addColumn:
+                    columns:
+                        - column:
+                              constraints:
+                                  nullable: false
+                              name: city_id
+                              type: bigint
+                    tableName: city_score
+    - changeSet:
+          id: 1612620263606-5
+          author: sumutella (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: identity_number
+                    constraintName: UC_SCORE_SEGMENTIDENTITY_NUMBER_COL
+                    tableName: score_segment
+    - changeSet:
+          id: 1612620263606-6
+          author: sumutella (generated)
+          changes:
+              - addForeignKeyConstraint:
+                    baseColumnNames: city_id
+                    baseTableName: city_score
+                    constraintName: FKemithxhu2rok2dvkcm08axrlj
+                    deferrable: false
+                    initiallyDeferred: false
+                    referencedColumnNames: id
+                    referencedTableName: city
+                    validate: true
+    - changeSet:
+          id: 1612620263606-7
+          author: sumutella (generated)
+          changes:
+              - dropColumn:
+                    columnName: traffic_code
+                    tableName: city_score
+    - changeSet:
+          id: 1612620263606-1
+          author: sumutella (generated)
+          changes:
+              - dropUniqueConstraint:
+                    constraintName: UC_USERIDENTITY_NUMBER_COL
+                    tableName: user
+    - changeSet:
+          id: 1612620263606-2
+          author: sumutella (generated)
+          changes:
+              - addUniqueConstraint:
+                    columnNames: identity_number
+                    constraintName: UC_USERIDENTITY_NUMBER_COL
+                    tableName: user
+

@@ -61,7 +61,7 @@ public class TestObjectFactory {
     public static CityScore cityScore() {
         CityScore cityScore = new CityScore();
         cityScore.setScore(12000);
-        cityScore.setTrafficCode(31);
+        cityScore.setCity(city());
         return cityScore;
     }
 

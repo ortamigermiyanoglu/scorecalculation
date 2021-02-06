@@ -23,7 +23,7 @@ public class ScoreSegmentCommandServiceImplTest {
 
     @Test
     public void calculateScoreSegment() {
-        Mockito.when(scoreSegmentRepository.existsByIdentityNumber(Mockito.anyLong())).thenReturn(true);
+//        Mockito.when(scoreSegmentRepository.existsByIdentityNumber(Mockito.anyLong())).thenReturn(true);
         Mockito.when(scoreSegmentRepository.findByIdentityNumber(Mockito.anyLong())).thenReturn(TestObjectFactory.scoreSegment());
 
         service.getUserScoreSegment(22906948011L);
