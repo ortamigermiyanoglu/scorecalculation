@@ -1,15 +1,15 @@
 databaseChangeLog:
   - include:
-      file: src/main/resources/db/changelog/20210201-1258-changeLog.yaml
+      file: src/main/resources/db/changelog/20210201-1258-changeLog.yml
   - include:
-      file: src/main/resources/db/changelog/20210131-2057-changeLog.yaml
+      file: src/main/resources/db/changelog/20210131-2057-changeLog.yml
   - include:
-      file: src/main/resources/db/changelog/20210131-2114-changeLog.yaml
+      file: src/main/resources/db/changelog/20210131-2114-changeLog.yml
   - include:
-      file: src/main/resources/db/changelog/20210201-1415-changeLog.yaml
+      file: src/main/resources/db/changelog/20210201-1415-changeLog.yml
   - include:
-      file: src/main/resources/db/changelog/20210201-1442-changeLog.yaml
+      file: src/main/resources/db/changelog/20210201-1442-changeLog.yml
   - include:
-      file: src/main/resources/db/changelog/20210206-1404-changeLog.yaml
+      file: src/main/resources/db/changelog/20210206-1404-changeLog.yml
   - include:
-      file: src/main/resources/db/changelog/20210206-1359-changeLog.yaml
+      file: src/main/resources/db/changelog/20210206-1359-changeLog.yml
